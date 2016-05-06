@@ -1,14 +1,14 @@
 #pragma once
 
+enum field{A='A',B,C,D,E,F,G,H,I,J};
 class Board
 {
-	int size;
+	static const int size;
+	char **_play_board;
 public:
 	Board();
 	~Board();
 	void show();
-	void destroyer(Sail &);
-	void cruiser();
-	void regular();
-	void pine();
-}
+	
+	
+};
