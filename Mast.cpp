@@ -1,8 +1,14 @@
 #include "Mast.h"
 
-using namespace std;
-Mast::Mast(int size_of_board)
+Mast::Mast()
 {
-	_x=rand()%size_of_board;
-	_y=rand()%size_of_board;
+
+	_IsAlive=true;
 }
+Mast::Mast(int a,int b)
+{
+	_x=a;
+	_y=b;
+	_IsAlive=true;
+}
+

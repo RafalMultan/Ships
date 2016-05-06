@@ -1,13 +1,11 @@
 #pragma once
-struct coordinates
-{
-	int x;
-	int y;
-};
+
 class Mine
 {
-	coordinates _whereAmI;
+	int _x;
+	int _y;
 public:
-	coordinates whereAmI(){return _whereAmI;}
-	bool Hit();
+	int x(){return _x;}
+	int y(){return _y;}
+	bool hit(int,int);
 };

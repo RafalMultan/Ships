@@ -1,17 +1,19 @@
 #pragma once
 #include <cstdlib>
-enum status{alive='a',dead='d'};
+
 
 class Mast
 {
 	int _x;
 	int _y;
-	status _ActualStatus;
+	bool _IsAlive;
 public:
-	Mast(int);
+	Mast();
+	Mast(int,int);
 	int x(){return _x;}
 	int y(){return _y;}
-	status ActualStatus(){return _ActualStatus;}
-	status damage(){_ActualStatus=dead;}
+	void damage(){_IsAlive=false;}
+	bool IsAlive(){return _IsAlive;}
+
 
 };
