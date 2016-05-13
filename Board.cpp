@@ -2,21 +2,20 @@
 #include <iostream>
 #include <iomanip>
 using namespace std;
-const int Board::size=10;
+const int Board::_size=10;
 Board::Board()
 {
 	int i;
-	_play_board=new char*[size+1];
-	for(i=0;i<size+1;i++)
-	{	_play_board[i]=new char[size+1];
-		for(int j=0;j<size;j++)
-			_play_board[i][j]='0';
+	_play_board=new Mast*[_size];
+	for(i=0;i<_size;i++)
+		_play_board[i]=new Mast[_size];
+		
 }
 	
-}
+
 Board::~Board()
 {
-	for(int i=0;i<size;i++)
+	for(int i=0;i<_size;i++)
 	delete [] _play_board[i];
 	delete [] _play_board;	
 }
@@ -24,12 +23,17 @@ void Board::show()
 {
 
 	cout<<endl;
-	for(int i=0;i<size;i++)
+	cout<<"   1 ";
+	for(int i=2;i<_size+1;i++)
+		cout<<i<<" ";
+	cout<<endl;
+	for(int i=0;i<_size;i++)
 	{	cout<<setw(2)<<i+1<<" ";
-		for(int j=0;j<size;j++)
+		for(int j=0;j<_size;j++)
 			{
-				
-				cout<<_play_board[i][j]<<" ";
+				if(_play_board[i][j].actual_status()==hidden || _play_board[i][j].actual_status()==nothing)cout<<"0 ";
+				if(_play_board[i][j].actual_status()==dead)cout<<"X ";
+				if(_play_board[i][j].actual_status()==missed)cout<<"P ";
 			}		
 		cout<<endl;
 	}

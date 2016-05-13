@@ -1,16 +1,17 @@
 #pragma once
-
+#include "Mast.h"
 enum field{A='A',B,C,D,E,F,G,H,I,J};
 class Board
 {
-	static const int size;
-	char **_play_board;
+	static const int _size;
+	Mast ** _play_board;
 public:
-	
+
 	Board();
 	~Board();
 	void show();
-	char** play_board(){return _play_board;}
+	Mast** play_board(){return _play_board;}
+	
 
 	
 };
