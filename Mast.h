@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 enum direction{vertical,horizontal};
-enum status{nothing,hidden,dead,missed,mine};
+enum status{nothing,hidden,dead,missed,mine,dead_mine};
 class Mast
 {
 
@@ -22,4 +22,5 @@ public:
 	friend void make_cruiser(direction,int,int,Mast **,std::vector<Mast*> &v);
 	friend void make_frigate(direction,int,int,Mast **,std::vector<Mast*> &v);
 	friend Mast* make_pine(int,int,Mast **);
+	friend Mast* make_mine(int,int,Mast **);
 };

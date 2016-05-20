@@ -15,6 +15,8 @@ void Mast::damage()
 	_ActualStatus=dead;
 	if(_ActualStatus==nothing)
 		_ActualStatus=missed;
+	if(_ActualStatus==mine)
+		_ActualStatus=dead_mine;
 }
 void make_destroyer(direction dir,int xbegin,int ybegin,Mast **t,std::vector<Mast*> &v)
 {
@@ -70,5 +72,10 @@ void make_frigate(direction dir,int xbegin,int ybegin,Mast **t,std::vector<Mast*
 Mast* make_pine(int xbegin,int ybegin,Mast **t)
 {
 	t[xbegin-1][ybegin-1].change_status(hidden);
+	return &t[xbegin-1][ybegin-1];
+}
+Mast* make_mine(int xbegin,int ybegin,Mast **t)
+{
+	t[xbegin-1][ybegin-1].change_status(mine);
 	return &t[xbegin-1][ybegin-1];
 }

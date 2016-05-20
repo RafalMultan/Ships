@@ -23,6 +23,7 @@ void Board::show()
 {
 
 	cout<<endl;
+	cout<<setw(15)<<"OŚ X"<<endl;
 	cout<<"   1 ";
 	for(int i=2;i<_size+1;i++)
 		cout<<i<<" ";
@@ -31,9 +32,10 @@ void Board::show()
 	{	cout<<setw(2)<<i+1<<" ";
 		for(int j=0;j<_size;j++)
 			{
-				if(_play_board[i][j].actual_status()==hidden || _play_board[i][j].actual_status()==nothing)cout<<"0 ";
+				if(_play_board[i][j].actual_status()==hidden || _play_board[i][j].actual_status()==nothing || _play_board[i][j].actual_status()==mine)cout<<"0 ";
 				if(_play_board[i][j].actual_status()==dead)cout<<"X ";
 				if(_play_board[i][j].actual_status()==missed)cout<<"P ";
+				if(_play_board[i][j].actual_status()==dead_mine)cout<<"T ";
 			}		
 		cout<<endl;
 	}
