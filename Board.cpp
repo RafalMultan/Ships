@@ -40,3 +40,26 @@ void Board::show()
 		cout<<endl;
 	}
 }
+void Board::show_my()
+{
+	cout<<endl;
+	cout<<setw(15)<<"OŚ X"<<endl;
+	cout<<"   1 ";
+	for(int i=2;i<_size+1;i++)
+		cout<<i<<" ";
+	cout<<endl;
+	for(int i=0;i<_size;i++)
+	{	cout<<setw(2)<<i+1<<" ";
+		for(int j=0;j<_size;j++)
+			{
+				if(_play_board[i][j].actual_status()==nothing)cout<<"0 ";
+				if(_play_board[i][j].actual_status()==dead)cout<<"X ";
+				if(_play_board[i][j].actual_status()==missed)cout<<"P ";
+				if(_play_board[i][j].actual_status()==dead_mine)cout<<"T ";
+				if(_play_board[i][j].actual_status()==mine)cout<<"M ";
+				if(_play_board[i][j].actual_status()==hidden)cout<<"H ";
+			}		
+		cout<<endl;
+	}
+	
+}

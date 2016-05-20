@@ -25,12 +25,14 @@ int main(int argc,char **argv)
 	int xCpuTarget,yCpuTarget;// walka
 	while(occupiedSlots1.size() && occupiedSlots2.size())
 	{
-		cout<<"Z"<<endl;
+		//cout<<"Z"<<endl;
+		
 		bool freshCoordinates;
 		do
 		{
 			do
-			{cout<<"Y"<<endl;   //cos sie sypie nieskonczona petla czasami
+			{
+			//cout<<"Y"<<endl;   //cos sie sypie nieskonczona petla czasami
 				freshCoordinates=true;
 				xCpuTarget=rand()%10;
 				yCpuTarget=rand()%10;
@@ -39,19 +41,28 @@ int main(int argc,char **argv)
 				if(freshCoordinates)shotsFiredPlayerCPU.push_back(Coords(xCpuTarget,yCpuTarget));
 			}while(!freshCoordinates && shotsFiredPlayerCPU.size()!=100);
 				(*(player1.play_board()+yCpuTarget)+xCpuTarget)->damage();
-				
-				cout<<"X"<<endl;
+				//cout<<"X"<<endl;
 				if((*(player1.play_board()+yCpuTarget)+xCpuTarget)->actual_status()==dead_mine)(*(player2.play_board()+yCpuTarget)+xCpuTarget)->damage();
 				for(int i=0;i<occupiedSlots1.size();i++)
 					if(occupiedSlots1[i]->x()==xCpuTarget+1 && occupiedSlots1[i]->y()==yCpuTarget+1)
 						occupiedSlots1.erase(occupiedSlots1.begin()+i);
 		}while((*(player1.play_board()+yCpuTarget)+xCpuTarget)->actual_status()==dead);		
-
-
+		/*do
+		{
+			cout<<endl<<"Podaj X [1,10]"<<endl;
+		cin>>xCpuTarget;
+		cout<<"Podaj Y [1,10]"<<endl;
+		cin>>yCpuTarget;
+		xCpuTarget--;yCpuTarget--;
+			(*(player2.play_board()+yCpuTarget)+xCpuTarget)->damage();
+			if((*(player2.play_board()+yCpuTarget)+xCpuTarget)->actual_status()==dead_mine)(*(player1.play_board()+yCpuTarget)+xCpuTarget)->damage();
+		}while((*(player2.play_board()+yCpuTarget)+xCpuTarget)->actual_status()==dead);*/
+	player1.show_my();
+	player2.show();
+	
 	}
 	cout<<shotsFiredPlayerCPU.size()<<endl;
-	player1.show();
-	player2.show();
+	
 	
 	
 
